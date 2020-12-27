@@ -37,12 +37,25 @@ namespace RED4ext::REDreverse
             GameInstance* gameInstance;
         };
 
+        struct UnkC0
+        {
+            uint8_t pad0[0x140];
+            uint32_t unk140;
+            uint8_t pad144[0x164 - 0x144];
+            uint32_t unk164;
+            void* hWnd;
+            uint8_t pad170[0x9];
+            uint8_t isClipped;
+        };
+
         RED4EXT_ASSERT_SIZE(CGameFramework, 0x18);
         RED4EXT_ASSERT_OFFSET(CGameFramework, gameInstance, 0x10);
 
         static CGameEngine* Get();
 
-        int8_t unk0[0x258];
+        int8_t pad8[0xC0 - 0x8];
+        UnkC0* unkC0;
+        int8_t padC8[0x260 - 0xC8];
         CGameFramework* framework;
     };
 
